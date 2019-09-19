@@ -9,6 +9,33 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
 
     <Grid>
+        <TextBlock FontSize="50" HorizontalAlignment="Center" Margin="0,43,0,0" Text="Projet FILMS" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="258,189,0,0" Text="Choix du genre du film" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="258,281,0,0" Text="Liste des films" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="969,290,0,0" Text="Liste des acteurs" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <ComboBox Name="cboChoixGenre" Margin="873,183,0,0" Width="303"/>
+        <TextBlock HorizontalAlignment="Left" Margin="258,399,0,0" Text="Ajouter un nouveau genre" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="258,447,0,0" Text="Saisir le nom du genre" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged"/>
+        <TextBox Name="txtNomGenre" HorizontalAlignment="Left" Margin="130,0,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="418"/>
+        <TextBox Name="txtNomFilm" HorizontalAlignment="Left" Margin="553,0,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="418"/>
+        <TextBox Name="txtNbrEntree" HorizontalAlignment="Left" Margin="553,537,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="418"/>
+        <TextBox Name="txtNomRea" HorizontalAlignment="Left" Margin="553,598,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="418"/>
+        <TextBox Name="txtPrenomRea" HorizontalAlignment="Left" Margin="553,657,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="418"/>
+        <TextBlock HorizontalAlignment="Left" Margin="611,447,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged"><Run Text="Saisir le nom du film"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="605,516.001,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Width="217.5" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.018"/>
+            </TextBlock.RenderTransform><Run Text="Saisir le nombre d'entrées du film"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="605,574,0,0" Text="Saisir le nom du réalisateur" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="605,635,0,0" Text="Saisir le prénom du réalisateur" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged"/>
+        <Button Name="btnGenre" Content="Ajouter un genre" Margin="130,547,0,0" VerticalAlignment="Top" Width="417"/>
+        <TextBlock HorizontalAlignment="Left" Margin="908,403,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged"><Run Text="Ajouter un nouveau"/><Run Text=" film"/></TextBlock>
+        <GridView Name="GridChoixActeur" Margin="1020,484,126,269"/>
+        <Button Name="btwFilm" Content="Ajouter un film" Margin="1019,771,0,0" VerticalAlignment="Top" Height="30" Width="355"/>
+        <ListView Margin="131,333,763,606">
+            <ListView Name="lstFilm" Height="61" Width="475"/>
+        </ListView>
+        <GridView Name="GridActeur" Margin="813,334,95,607"/>
 
     </Grid>
 </Page>

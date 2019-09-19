@@ -27,7 +27,8 @@ namespace ProjetFilm
         {
             this.InitializeComponent();
         }
-        private Dictionary<string, List<Film>> Films;
+        private Dictionary<string, List<Film>> dico;
+        List<string> lesGenres;
         private List<Acteur> Acteurs;
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
