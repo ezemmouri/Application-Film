@@ -155,5 +155,23 @@ namespace ProjetFilm
             dico.Add("Science Fiction", lesFilmsScienceFiction);
 
         }
+
+        private void BtnGenre_Click(object sender, RoutedEventArgs e)
+        {
+            string genre = txtNomGenre.Text;
+            if (genre == "")
+            {
+                ContentDialog MessageGenre = new ContentDialog()
+                {
+                    Title = "Aucune saisie",
+                    Content = "Veuillez saisir dans la boite",
+                    CloseButtonText = "Fermer"
+                };
+            } else
+            {
+
+            }
+            }
+        }
     }
 }
