@@ -33,6 +33,13 @@ namespace ProjetFilm
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            dico = new Dictionary<string, List<Film>>();
+            Acteurs = new List<Acteur>();
+            /*
+             * 
+             *-----Début du jeu d'essai-----
+             * 
+            */
             Acteur acteur1 = new Acteur()
             {
                 NomActeur = "De Niro",
@@ -153,24 +160,101 @@ namespace ProjetFilm
             dico.Add("Comédie", lesFilmsComedie);
             dico.Add("Aventure", lesFilmsAventure);
             dico.Add("Science Fiction", lesFilmsScienceFiction);
-
+            /*
+            * 
+            *-----Fin du jeu d'essai-----
+            * 
+            */
         }
-
+        // bouton qui permet d'ajouter un genre
         private void BtnGenre_Click(object sender, RoutedEventArgs e)
         {
             string genre = txtNomGenre.Text;
+            // si l'utilisateur ne remplie pas le nom du genre
             if (genre == "")
             {
+                // alors cela retourne un message d'erreur
                 ContentDialog MessageGenre = new ContentDialog()
                 {
                     Title = "Aucune saisie",
                     Content = "Veuillez saisir dans la boite",
                     CloseButtonText = "Fermer"
                 };
-            } else
+            } else 
             {
-
+                // si le dictionnaire contient déjà le genre du film
+                if (dico.ContainsKey(genre))
+                {
+                    // dans ce cas -> message pour informer que le genre existe déjà
+                    ContentDialog MessageGenre = new ContentDialog()
+                    {
+                        Title = "Erreur saisie",
+                        Content = "Ce contenu est déjà existant",
+                        CloseButtonText = "Fermer"
+                    };
+                }
+                // si le genre n'existe pas
+                else
+                {
+                    // ajout du genre dans le dictionnaire 
+                    dico.Add(genre, new List<Film>());
+                    txtNomGenre.Text = "";
+                    cboChoixGenre.ItemsSource = null;
+                    cboChoixGenre.ItemsSource = dico.Keys;
+                    cboChoixGenre.SelectedIndex = cboChoixGenre.Items.Count - 1;
+                }
             }
+
+        }
+        // bouton qui permet d'ajouter un film
+        private void BtwFilm_Click(object sender, RoutedEventArgs e)
+        {
+            List<Acteur> Acteurs = new List<Acteur>();
+            ContentDialog Message = new ContentDialog();
+            // si il n'y a pas de titre
+            if (txtNomFilm.Text == "")
+            {
+                Message = new ContentDialog()
+                {
+                    Title = "Erreur dans la saisie",
+                    Content = "Veuillez saisir un titre"
+                };
+            }
+            // si il n'y a pas le nombre d'entrées
+            else if (txtNbrEntree.Text == "")
+            {
+                Message = new ContentDialog()
+                {
+                    Title = "Erreur dans la saisie",
+                    Content = "Veuillez saisir le nombre d'entrées"
+                };
+            }
+            // si il n'y a pas le nom du réalisateur
+            else if (txtNomRea.Text == "")
+            {
+                Message = new ContentDialog()
+                {
+                    Title = "Erreur dans la saisie",
+                    Content = "Veuillez saisir le nom du réalisateur"
+                };
+            }
+            // si il n'y a pas le prénom du réalisateur
+            else if (txtPrenomRea.Text == "")
+            {
+                Message = new ContentDialog()
+                {
+                    Title = "Erreur dans la saisie",
+                    Content = "Veuillez saisir le prénom du réalisateur"
+                };
+            }
+            // si la GridBox n'a aucun élément de choisi
+            else if(GridChoixActeur.SelectedItems.Count == 0)
+            {
+                Message = new ContentDialog()
+                {
+                    Title = "Erreur dans la saisie",
+                    Content = "Veuillez sélectionner un acteur et/ou une actrice"
+                };
             }
         }
     }
